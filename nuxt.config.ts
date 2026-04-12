@@ -41,9 +41,9 @@ export default defineNuxtConfig({
     "/api/**": { cors: true },
   },
   future: {
-    compatibilityVersion: 4,
+    compatibilityVersion: 5,
   },
-  compatibilityDate: "2025-06-22",
+  compatibilityDate: "2026-01-14",
   vite: {
     plugins: [tailwindcss()],
     // experimental: {
@@ -56,5 +56,8 @@ export default defineNuxtConfig({
         lang: "en",
       },
     },
+  },
+  experimental: {
+    nitroAutoImports: true,
   },
 });
