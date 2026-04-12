@@ -61,7 +61,23 @@ const contacts = [
             Available for new projects
           </span>
         </div>
-        <!-- TODO: button bio/contact/github // available for projects -->
+        <div
+          v-else
+          class="text-red-400 rounded-full flex flex-row items-center gap-x-2 mx-2"
+        >
+          <span class="relative inline-flex size-2 -mt-0.5">
+            <span
+              class="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-400 opacity-75"
+            ></span>
+            <span
+              class="relative inline-flex size-2 rounded-full bg-red-500"
+            ></span>
+          </span>
+
+          <span class="text-sm font-semibold">
+            Not available for new projects
+          </span>
+        </div>
       </div>
     </div>
 
