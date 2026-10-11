@@ -1,4 +1,4 @@
-import { defineStore, skipHydrate } from "pinia";
+import { defineStore } from "pinia";
 
 export const useCounterStore = defineStore("counterStore", () => {
   const count = ref(0);
