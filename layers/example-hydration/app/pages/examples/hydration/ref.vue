@@ -1,14 +1,27 @@
 <template>
-  <div>
-    <p>
-      Refresh halaman ini setelah tampil, maka akan keluar warning hydration
-      mismatch.
+  <div class="flex flex-col gap-y-4">
+    <p class="text-neutral-300">
+      Refresh this page after it renders, and a hydration mismatch warning
+      will appear.
     </p>
-    <NuxtLink to="/examples/hydration/use-state"> Fix </NuxtLink>
-    <ul>
-      <li v-for="link in linkList" :key="link.url">
-        <NuxtLink :to="link.url" :external="true" target="_blank">
+    <NuxtLink to="/examples/hydration/use-state" class="btn self-start">
+      See the fix
+      <Icon name="tabler:arrow-right" size="1rem" class="ml-1" />
+    </NuxtLink>
+    <ul class="flex flex-col gap-y-2">
+      <li
+        v-for="link in linkList"
+        :key="link.url"
+        class="rounded-xl border border-neutral-800 px-4 py-2"
+      >
+        <NuxtLink
+          :to="link.url"
+          :external="true"
+          target="_blank"
+          class="inline-flex items-center gap-x-1 text-sm text-neutral-300 hover:text-white hover:underline"
+        >
           {{ link.name }}
+          <Icon name="tabler:external-link" size="1rem" />
         </NuxtLink>
       </li>
     </ul>
@@ -17,6 +30,12 @@
 
 <script lang="ts" setup>
 import type { Link } from "~/types";
+
+definePageMeta({
+  layout: "examples",
+  title: "Hydration Mismatch",
+  description: "Random values generated in setup differ between server and client.",
+});
 
 const linkList = ref<Link[]>(generateRandomLinks());
 

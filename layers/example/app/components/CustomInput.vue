@@ -1,14 +1,14 @@
 <template>
   <div class="*:block">
     <label
-      class="text-sm"
+      class="text-sm text-neutral-300"
       :for="inputId"
     >{{ label }}</label>
     <input
       :id="inputId"
       v-model="modelValue"
       type="text"
-      class="px-3 py-2 rounded border border-gray-300"
+      class="field-input"
     >
   </div>
 </template>

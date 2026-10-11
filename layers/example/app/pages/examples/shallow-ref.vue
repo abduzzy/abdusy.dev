@@ -1,73 +1,67 @@
 <template>
-  <div>
-    <h1>shallowRef</h1>
-    <p>Counter Ref: {{ counter }}</p>
-    <p>Counter shallowRef: {{ shallowCounter }}</p>
+  <div class="flex flex-col gap-y-8">
+    <section class="card">
+      <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
+        <p class="text-neutral-300">
+          Counter Ref: <code>{{ counter }}</code>
+        </p>
+        <p class="text-neutral-300">
+          Counter shallowRef: <code>{{ shallowCounter }}</code>
+        </p>
+        <p class="text-neutral-300">
+          Counter 2 Ref: <code>{{ counter2.count }}</code>
+        </p>
+        <p class="text-neutral-300">
+          Counter 2 shallowRef: <code>{{ shallowCounter2.count }}</code>
+        </p>
+      </div>
 
-    <p>Counter 2 Ref: {{ counter2.count }}</p>
-    <p>Counter 2 shallowRef: {{ shallowCounter2.count }}</p>
+      <div class="mt-4 flex flex-wrap gap-3 border-t border-neutral-800 pt-4">
+        <button class="btn" type="button" @click="counter++">
+          Increase Counter Ref
+        </button>
+        <button type="button" class="btn" @click="shallowCounter++">
+          Increase Counter shallowRef
+        </button>
+        <button type="button" class="btn" @click="counter2.count++">
+          Increase Counter 2 Ref
+        </button>
+        <button type="button" class="btn" @click="shallowCounter2.count++">
+          Increase Counter 2 shallowRef
+        </button>
+      </div>
+    </section>
 
-    <div class="border-y border-gray-300 flex flex-wrap gap-4 py-4">
-      <button
-        class="px-3 py-2 rounded-md bg-sky-200 text-sky-800"
-        type="button"
-        @click="counter++"
-      >
-        Increase Counter Ref
-      </button>
-      <button
-        type="button"
-        class="px-3 py-2 rounded-md bg-sky-200 text-sky-800"
-        @click="shallowCounter++"
-      >
-        Increase Counter shallowRef
-      </button>
+    <section>
+      <h2 class="text-2xl font-medium">Problem</h2>
+      <p class="mt-2 text-neutral-300">
+        When increasing Counter 2 shallowRef, the value is increased, but the view not updated. It's
+        because the button only update the count value, not the whole ref value.
+      </p>
+      <p class="mt-1 text-neutral-300">To update the view, other button must be pressed.</p>
+    </section>
 
-      <button
-        type="button"
-        class="px-3 py-2 rounded-md bg-sky-200 text-sky-800"
-        @click="counter2.count++"
-      >
-        Increase Counter 2 Ref
-      </button>
-
-      <button
-        type="button"
-        class="px-3 py-2 rounded-md bg-sky-200 text-sky-800"
-        @click="shallowCounter2.count++"
-      >
-        Increase Counter 2 shallowRef
-      </button>
-    </div>
-
-    <h2>Problem</h2>
-    <p>
-      When increasing Counter 2 shallowRef, the value is increased, but the view not updated. It's
-      because the button only update the count value, not the whole ref value.
-    </p>
-    <p>To update the view, other button must be pressed.</p>
-
-    <h2>Solve</h2>
-    <div class="border-y border-gray-300 flex flex-wrap gap-4 py-4">
-      <button
-        type="button"
-        class="px-3 py-2 rounded-md bg-sky-200 text-sky-800"
-        @click="increaseShallowCounter"
-      >
-        Increase Counter 2 shallowRef
-      </button>
-      <button
-        type="button"
-        class="px-3 py-2 rounded-md bg-sky-200 text-sky-800"
-        @click="increaseShallowCounter2"
-      >
-        Increase Counter 2 shallowRef v2
-      </button>
-    </div>
+    <section>
+      <h2 class="text-2xl font-medium">Solve</h2>
+      <div class="mt-4 flex flex-wrap gap-3">
+        <button type="button" class="btn" @click="increaseShallowCounter">
+          Increase Counter 2 shallowRef
+        </button>
+        <button type="button" class="btn" @click="increaseShallowCounter2">
+          Increase Counter 2 shallowRef v2
+        </button>
+      </div>
+    </section>
   </div>
 </template>
 
 <script lang="ts" setup>
+definePageMeta({
+  layout: "examples",
+  title: "shallowRef",
+  description: "How shallowRef differs from ref and when to trigger updates manually.",
+});
+
 const counter = ref(0)
 const shallowCounter = shallowRef(0)
 

@@ -2,6 +2,6 @@
 export default defineNuxtConfig({
   modules: ["@pinia/nuxt", "@vueuse/nuxt"],
   pinia: {
-    storesDirs: ["./layers/example-counter/app/stores/"],
+    storesDirs: ["./stores/"],
   },
 });

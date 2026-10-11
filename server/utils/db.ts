@@ -1,9 +1,10 @@
-import type { H3Event } from "h3";
+import { useRuntimeConfig } from "nuxt/server";
+import type { RequestEvent } from "nuxt/server";
 import { drizzle } from "drizzle-orm/libsql";
 
 import { createClient } from "@libsql/client";
 
-export const db = (event: H3Event) => {
+export const db = (event: RequestEvent) => {
   const runtimeConfig = useRuntimeConfig(event);
 
   const connection = createClient({

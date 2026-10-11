@@ -15,6 +15,18 @@
   @apply after:absolute after:inset-0 after:content-[''];
 }
 
+.btn {
+  @apply inline-flex items-center justify-center rounded-lg border border-neutral-700 bg-neutral-800 px-4 py-2 text-sm font-medium text-neutral-100 transition hover:bg-neutral-700 active:bg-neutral-600;
+}
+
+.card {
+  @apply rounded-xl border border-neutral-800 bg-neutral-800/40 p-5;
+}
+
+.field-input {
+  @apply mt-1 w-full rounded-lg border border-neutral-700 bg-neutral-900 px-3 py-2 text-neutral-100 outline-none placeholder:text-neutral-500 focus:border-neutral-400;
+}
+
 .article-wrapper {
   --padding-inline: 1.5rem;
   --content-max-size: 70ch;

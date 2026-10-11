@@ -2,11 +2,11 @@
   <div>
     <CustomInput
       v-model="firstName"
-      label="Nama Depan"
+      label="First Name"
     />
     <CustomInput
       v-model="lastName"
-      label="Nama Belakang"
+      label="Last Name"
     />
   </div>
 </template>

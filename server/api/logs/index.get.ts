@@ -1,9 +1,9 @@
-import type { H3Event } from "h3";
+import { defineEventHandler } from "nuxt/server";
 import { desc } from "drizzle-orm";
 
 import { logs } from "~~/server/db/schema";
 
-export default defineEventHandler(async (event: H3Event) => {
+export default defineEventHandler(async (event) => {
   const selectLogs = await db(event)
     .select()
     .from(logs)

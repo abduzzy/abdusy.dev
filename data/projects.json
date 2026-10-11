@@ -4,21 +4,21 @@
     "description": "Application to track expense dan income. Created using Nuxt and deploy through NuxtHub.",
     "is_wip": true,
     "is_archved": false,
-    "link": "https://github.com/kido1611/expense-tracker"
+    "link": "https://github.com/abduzzy/expense-tracker"
   },
   {
     "name": "Rustatsu-Sync Server",
     "description": "Kotatsu user syncronization server. Rewrite from Kotlin to Rust, also using PostgreSQL.",
     "is_wip": false,
     "is_archved": false,
-    "link": "https://github.com/kido1611/rustatsu-sync-server "
+    "link": "https://github.com/abduzzy/rustatsu-sync-server "
   },
   {
     "name": "Arduino Connect",
     "description": "Android library to communicate between microcontroller and Android using Bluetooth.",
     "is_wip": false,
     "is_archved": true,
-    "link": "https://github.com/kido1611/ArduinoConnect"
+    "link": "https://github.com/abduzzy/ArduinoConnect"
   },
   {
     "name": "AMRO Android ROM",

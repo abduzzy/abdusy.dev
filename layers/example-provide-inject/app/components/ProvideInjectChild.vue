@@ -1,9 +1,8 @@
 <template>
-  <div class="divide-y divide-gray-400">
-    <section>
-      <h2>Child</h2>
-
-      <p>Component ini sengaja dibuat tidak menampilkan data</p>
+  <div class="flex flex-col gap-y-4">
+    <section class="card">
+      <h2 class="text-xl font-medium">Child</h2>
+      <p class="mt-2 text-neutral-300">This component intentionally displays no data</p>
     </section>
 
     <ProvideInjectSubChild />

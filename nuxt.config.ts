@@ -36,14 +36,14 @@ export default defineNuxtConfig({
     },
   },
   routeRules: {
-    "/": { prerender: true, static: true },
-    "/articles/**": { prerender: true, static: true },
+    "/": { prerender: true },
+    "/articles/**": { prerender: true },
     "/api/**": { cors: true },
   },
   future: {
     compatibilityVersion: 5,
   },
-  compatibilityDate: "2026-01-14",
+  compatibilityDate: "2026-10-04",
   vite: {
     plugins: [tailwindcss()],
     // experimental: {
@@ -58,6 +58,6 @@ export default defineNuxtConfig({
     },
   },
   experimental: {
-    nitroAutoImports: true,
+    routeTypedFetch: true,
   },
 });

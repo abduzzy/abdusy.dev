@@ -69,7 +69,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <nav name="Daftar Isi" class="text-xs">
+  <nav name="Table of Contents" class="text-xs">
     <ul class="flex flex-col gap-y-1.5">
       <li v-for="toc in links" :key="toc.id">
         <NuxtLink

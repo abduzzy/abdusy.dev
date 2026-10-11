@@ -1,13 +1,26 @@
 <script setup lang="ts">
+definePageMeta({
+  layout: "examples",
+  title: "Fetch with await",
+  description: "Blocking fetch, rendered on server and client.",
+});
+
 const { data, status } = await useFetch('/api/post')
+
+const statusColor = computed(() =>
+  status.value === 'success'
+    ? 'success'
+    : status.value === 'error'
+      ? 'error'
+      : status.value === 'pending'
+        ? 'warning'
+        : 'neutral',
+)
 </script>
 
 <template>
-  <div>
-    <h1>Fetch with await</h1>
-    <p>{{ status }}</p>
-    <div>
-      {{ data }}
-    </div>
+  <div class="flex flex-col items-start gap-y-4">
+    <Badge :color="statusColor">status: {{ status }}</Badge>
+    <pre class="w-full overflow-x-auto rounded-xl border border-neutral-800 bg-neutral-950 p-4 text-sm text-neutral-200">{{ JSON.stringify(data, null, 2) }}</pre>
   </div>
 </template>

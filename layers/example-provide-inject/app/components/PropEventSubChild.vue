@@ -1,11 +1,12 @@
 <template>
-  <section>
-    <h2>SubChild</h2>
-
-    <p>User: {{ prop.user }}</p>
-    <div class="flex flex-row items-center space-x-3">
-      <button @click="login">Login</button>
-      <button @click="logout">Logout</button>
+  <section class="card">
+    <h2 class="text-xl font-medium">SubChild</h2>
+    <p class="mt-2 text-neutral-300">
+      User: <code>{{ prop.user?.name ?? "Guest" }}</code>
+    </p>
+    <div class="mt-4 flex flex-row items-center gap-x-3">
+      <button class="btn" @click="login">Login</button>
+      <button class="btn" @click="logout">Logout</button>
     </div>
   </section>
 </template>

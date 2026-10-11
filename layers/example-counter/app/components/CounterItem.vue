@@ -10,14 +10,14 @@
         type="button"
         @click="emit('decrement')"
       >
-        Kurang
+        Decrease
       </button>
       <button
         class="px-4 py-3 rounded bg-sky-200 text-sky-900"
         type="button"
         @click="emit('increment')"
       >
-        Tambah
+        Increase
       </button>
     </div>
   </div>

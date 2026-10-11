@@ -1,11 +1,19 @@
 <script setup lang="ts">
 const { color = "neutral" } = defineProps<{
-  color?: "neutral" | "warning";
+  color?: "neutral" | "warning" | "success" | "error";
 }>();
 
 const colorClass = computed(() => {
   if (color === "warning") {
     return "bg-yellow-400/20 text-yellow-400";
+  }
+
+  if (color === "success") {
+    return "bg-green-400/15 text-green-300";
+  }
+
+  if (color === "error") {
+    return "bg-red-400/15 text-red-300";
   }
 
   return "bg-neutral-400/10 text-neutral-400";
