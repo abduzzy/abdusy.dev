@@ -6,7 +6,7 @@ export default defineNuxtConfig({
     enabled: true,
   },
   css: ["~/assets/css/main.css"],
-  modules: ["@vueuse/nuxt", "@nuxt/content", "@nuxt/icon"],
+  modules: ["@vueuse/nuxt", "@nuxt/content", "@nuxt/icon", "@vercel/analytics"],
   content: {
     build: {
       markdown: {
