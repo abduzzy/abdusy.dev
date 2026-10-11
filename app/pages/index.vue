@@ -16,8 +16,8 @@ const contacts = [
   },
   {
     icon: "tabler:brand-github",
-    value: "https://github.com/kido1611",
-    link: "https://github.com/kido1611",
+    value: "https://github.com/abduzzy",
+    link: "https://github.com/abduzzy",
   },
   {
     icon: "tabler:brand-linkedin",
@@ -175,7 +175,7 @@ const contacts = [
 
     <div class="-mx-6 lg:-mx-12 !py-0">
       <footer class="bg-stripes h-20 flex items-center justify-center">
-        <NuxtLink to="https://github.com/kido1611/abdusy.dev" target="_blank">
+        <NuxtLink to="https://github.com/abduzzy/abdusy.dev" target="_blank">
           <div class="inline-flex items-center gap-x-2">
             <span class="text-sm text-neutral-200">
               This site is created using
