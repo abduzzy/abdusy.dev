@@ -35,17 +35,24 @@ useSeoMeta({
   <main class="article-wrapper py-20">
     <template v-if="data">
       <div class="article-wrapper-content flex flex-col mb-14">
+        <NuxtLink
+          to="/articles"
+          class="mb-8 inline-flex items-center gap-x-1 self-start text-sm text-neutral-400 hover:text-white"
+        >
+          <Icon name="tabler:arrow-left" size="1rem" />
+          All articles
+        </NuxtLink>
         <h1 class="text-5xl font-light">
           {{ data.title }}
         </h1>
         <p class="text-xl text-neutral-300 mt-4">
           {{ data.description }}
         </p>
-        <p class="text-neutral-300 text-sm mt-2">
-          Dibuat
+        <p class="text-neutral-400 text-sm mt-4">
+          {{ data.author }} · Published
           <NuxtTime
             :datetime="data.created_at"
-            locale="id-ID"
+            locale="en-US"
             day="numeric"
             month="long"
             year="numeric"
@@ -53,18 +60,14 @@ useSeoMeta({
         </p>
         <div
           v-if="data.tags && data.tags.length > 0"
-          class="leading-normal flex flex-row items-center flex-wrap gap-x-4 text-sm mt-2 text-neutral-300"
+          class="leading-normal flex flex-row items-center flex-wrap gap-2 text-sm mt-4"
         >
-          <span class="inline-flex flex-row items-center">
-            <Icon name="tabler:tags" size="1.25rem" class="mr-1" />
-            tags:
-          </span>
-          <span v-for="tag in data.tags">
-            <NuxtLink
-              :to="`/articles/?tags=${tag}`"
-              class="hover:underline hover:text-white"
-              ># {{ tag }}</NuxtLink
-            >
+          <span
+            v-for="tag in data.tags"
+            :key="tag"
+            class="rounded-full border border-neutral-700 px-3 py-1 text-xs text-neutral-300 transition hover:border-neutral-400 hover:text-white"
+          >
+            <NuxtLink :to="`/articles/?tags=${tag}`"># {{ tag }}</NuxtLink>
           </span>
         </div>
       </div>
@@ -82,7 +85,7 @@ useSeoMeta({
           id="toc"
           class="sticky top-16 max-h-[80vh] overflow-y-auto overscroll-none"
         >
-          <label for="toc-list" class="font-medium text-sm">Daftar Isi</label>
+          <label for="toc-list" class="font-medium text-sm">Table of Contents</label>
 
           <ContentToc :links="data.body.toc?.links ?? []" class="mt-2" />
         </section>

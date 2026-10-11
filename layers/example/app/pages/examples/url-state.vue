@@ -1,17 +1,20 @@
 <template>
-  <div>
-    <h1>URL Query as State</h1>
-    <section>
-      <h2>Visible</h2>
-      <p>State: {{ visibleState }}</p>
-      <button @click="changeVisible">
+  <div class="flex flex-col gap-y-4">
+    <section class="card">
+      <h2 class="text-xl font-medium">Visible</h2>
+      <p class="mt-2 text-neutral-300">
+        State: <code>{{ visibleState || "-" }}</code>
+      </p>
+      <button class="btn mt-4" @click="changeVisible">
         Change
       </button>
     </section>
-    <section>
-      <h2>Filter</h2>
-      <p>State: {{ filterState }}</p>
-      <button @click="changeFilter">
+    <section class="card">
+      <h2 class="text-xl font-medium">Filter</h2>
+      <p class="mt-2 text-neutral-300">
+        State: <code>{{ filterState || "-" }}</code>
+      </p>
+      <button class="btn mt-4" @click="changeFilter">
         Change
       </button>
     </section>
@@ -19,6 +22,12 @@
 </template>
 
 <script lang="ts" setup>
+definePageMeta({
+  layout: "examples",
+  title: "URL Query as State",
+  description: "Syncing component state with URL query params. Try the buttons, then refresh.",
+});
+
 const visibleState = useUrlstate('visible', '')
 const filterState = useUrlstate('filter', 'name')
 

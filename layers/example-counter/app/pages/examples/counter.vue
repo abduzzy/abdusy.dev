@@ -1,16 +1,35 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+definePageMeta({
+  layout: "examples",
+  title: "Counter",
+  description:
+    "Local composable state stays per component, Pinia stores are shared, and the storage store persists in localStorage.",
+});
+</script>
 
 <template>
   <ClientOnly>
-    <div class="grid grid-cols-1 md:grid-cols-2">
-      <ComposableCounter />
-      <ComposableCounter />
+    <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+      <div class="rounded-xl border border-neutral-800">
+        <ComposableCounter />
+      </div>
+      <div class="rounded-xl border border-neutral-800">
+        <ComposableCounter />
+      </div>
 
-      <PiniaCounter />
-      <PiniaCounter />
+      <div class="rounded-xl border border-neutral-800">
+        <PiniaCounter />
+      </div>
+      <div class="rounded-xl border border-neutral-800">
+        <PiniaCounter />
+      </div>
 
-      <LazyPiniaStorageCounter />
-      <LazyPiniaStorageCounter />
+      <div class="rounded-xl border border-neutral-800">
+        <LazyPiniaStorageCounter />
+      </div>
+      <div class="rounded-xl border border-neutral-800">
+        <LazyPiniaStorageCounter />
+      </div>
     </div>
   </ClientOnly>
 </template>

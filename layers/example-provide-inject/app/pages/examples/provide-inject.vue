@@ -1,23 +1,28 @@
 <template>
-  <div>
-    <h1>Page Provide Inject</h1>
-    <div class="divide-y divide-gray-400">
-      <section>
-        <h2>Parent</h2>
-        <p>User: {{ user }}</p>
-        <div class="flex flex-row items-center space-x-3">
-          <button @click="login">Login</button>
-          <button @click="logout">Logout</button>
-        </div>
-      </section>
-      <ProvideInjectChild />
-    </div>
+  <div class="flex flex-col gap-y-4">
+    <section class="card">
+      <h2 class="text-xl font-medium">Parent</h2>
+      <p class="mt-2 text-neutral-300">
+        User: <code>{{ user?.name ?? "Guest" }}</code>
+      </p>
+      <div class="mt-4 flex flex-row items-center gap-x-3">
+        <button class="btn" @click="login">Login</button>
+        <button class="btn" @click="logout">Logout</button>
+      </div>
+    </section>
+    <ProvideInjectChild />
   </div>
 </template>
 
 <script lang="ts" setup>
 import type { User } from "../../types";
 import { ProvideInjectKey } from "../../types";
+
+definePageMeta({
+  layout: "examples",
+  title: "Provide & Inject",
+  description: "Sharing state with nested components without prop drilling.",
+});
 
 const user = ref<User>();
 

@@ -1,9 +1,10 @@
 <template>
-  <div class="divide-y divide-gray-400">
-    <section>
-      <h2>Child</h2>
-
-      <p>User: {{ prop.user }}</p>
+  <div class="flex flex-col gap-y-4">
+    <section class="card">
+      <h2 class="text-xl font-medium">Child</h2>
+      <p class="mt-2 text-neutral-300">
+        User: <code>{{ prop.user?.name ?? "Guest" }}</code>
+      </p>
     </section>
 
     <PropEventSubChild :user="prop.user" @login="login" @logout="logout" />

@@ -1,40 +1,48 @@
 <template>
-  <div>
-    <p>
-      Minim sint tempor consectetur et occaecat ad nostrud consectetur duis enim anim proident
-      consectetur. Eiusmod fugiat occaecat ea tempor dolore magna duis do consequat occaecat.
-      Aliquip eu aliqua quis quis ea cupidatat aliquip nulla eu dolore proident. Duis laborum
-      proident exercitation incididunt.
-    </p>
+  <div class="flex flex-col gap-y-4">
+    <section class="card">
+      <h2 class="text-xl font-medium">defineModel</h2>
+      <CustomInput v-model="value" label="Title" class="mt-4" />
+      <p class="mt-3 text-neutral-300">
+        Value: <code>{{ value }}</code>
+      </p>
+    </section>
 
-    <div class="*:block mt-6">
-      <CustomInput
-        v-model="value"
-        label="Judul"
-      />
-      <p>Value: {{ value }}</p>
-    </div>
-    <div class="*:block mt-6">
-      <CustomInputOld
-        v-model="value"
-        label="Nama Depan Old"
-      />
-      <p>Value: {{ value }}</p>
-    </div>
-    <div class="*:block mt-6">
+    <section class="card">
+      <h2 class="text-xl font-medium">Legacy update:modelValue event</h2>
+      <CustomInputOld v-model="value" label="First Name (Legacy)" class="mt-4" />
+      <p class="mt-3 text-neutral-300">
+        Value: <code>{{ value }}</code>
+      </p>
+    </section>
+
+    <section class="card">
+      <h2 class="text-xl font-medium">Multiple v-model bindings</h2>
       <MultipleForm
         v-model:last-name="value"
         v-model:first-name="firstName"
+        class="mt-4"
       />
-      <p>First Name: {{ firstName }}</p>
-      <p>Last Name: {{ value }}</p>
-    </div>
+      <p class="mt-3 text-neutral-300">
+        First Name: <code>{{ firstName }}</code>
+      </p>
+      <p class="mt-1 text-neutral-300">
+        Last Name: <code>{{ value }}</code>
+      </p>
+    </section>
   </div>
 </template>
 
 <script lang="ts" setup>
-const value = ref('Contoh value')
-const firstName = ref('--nama depan--')
+definePageMeta({
+  layout: "examples",
+  title: "v-model",
+  description:
+    "Two-way binding with defineModel, legacy update events, and multiple v-model bindings.",
+});
+
+const value = ref('Example value')
+const firstName = ref('--first name--')
 </script>
 
 <style></style>
